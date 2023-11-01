@@ -168,7 +168,7 @@ export default function Page() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const provinsiResponse = await axios.get('http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
+        const provinsiResponse = await axios.get('https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json');
         setProvinces(provinsiResponse.data);
       } catch (error) {
         console.error('Error fetching provinces:', error);
@@ -182,7 +182,7 @@ export default function Page() {
     const fetchCities = async () => {
       if (selectedProvinceId) {
         try {
-          const kotaResponse = await axios.get(`http://www.emsifa.com/api-wilayah-indonesia/api/regencies/${selectedProvinceId}.json`);
+          const kotaResponse = await axios.get(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${selectedProvinceId}.json`);
           setCities(kotaResponse.data);
         } catch (error) {
           console.error('Error fetching cities:', error);
@@ -197,7 +197,7 @@ export default function Page() {
     const fetchDistrict = async () => {
       if (selectedCityId) {
         try {
-          const kecamatanRespon = await axios.get(`http://www.emsifa.com/api-wilayah-indonesia/api/districts/${selectedCityId}.json`);
+          const kecamatanRespon = await axios.get(`https://www.emsifa.com/api-wilayah-indonesia/api/districts/${selectedCityId}.json`);
           setDistricts(kecamatanRespon.data);
         } catch (error) {
           console.error('Error fetching districts:', error);
@@ -212,7 +212,7 @@ export default function Page() {
     const fetchVillages = async () => {
       if (selectedDistrictId) {
         try {
-          const kelurahanRespon = await axios.get(`http://www.emsifa.com/api-wilayah-indonesia/api/villages/${selectedDistrictId}.json`);
+          const kelurahanRespon = await axios.get(`https://www.emsifa.com/api-wilayah-indonesia/api/villages/${selectedDistrictId}.json`);
           setVillages(kelurahanRespon.data);
         } catch (error) {
           console.error('Error fetching villages:', error);
